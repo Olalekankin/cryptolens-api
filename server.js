@@ -6,6 +6,7 @@ const connectToDb = require('./database/db')
 const userRoutes = require('./routes/user-routes')
 const authRoutes = require('./routes/auth-routes')
 const proRoutes = require('./routes/protected-routes')
+const courseRoutes = require('./routes/course-routes')
 
 // connect to database
 connectToDb()
@@ -16,7 +17,8 @@ app.use(express.json())
 // Routes
 app.use('/api/v1/user', userRoutes)
 app.use('/api/v1/auth', authRoutes)
-app.use('/api/v1', proRoutes)
+app.use('/api/v1', proRoutes);
+app.use('/api/v1/course', courseRoutes);
 
 // Debug: List all registered routes
 app._router.stack.forEach((middleware) => {
