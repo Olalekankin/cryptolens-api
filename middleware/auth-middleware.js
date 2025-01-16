@@ -22,8 +22,6 @@ const authMiddleware = (req, res, next)=> {
     message: 'Server error',
   })
  }
-
- console.log(`Token: ${token}`)
 }
 
 

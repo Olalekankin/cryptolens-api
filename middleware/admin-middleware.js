@@ -7,7 +7,6 @@ const isAdmin = (req, res, next)=> {
    message: 'Access denied, admin right is required'
   })
  }
- console.log(role)
  next();
 }
 

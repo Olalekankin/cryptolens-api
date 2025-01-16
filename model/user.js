@@ -64,6 +64,8 @@ const UserSchema = new mongoose.Schema(
           required: true,
           ref: 'Course',
         },
+        quizScores: {type: Number},
+        status: {type: String, enum: ['incomplete', 'completed'], default: 'incomplete'},
         subscriptionDate: {
           type: Date,
           default: Date.now,

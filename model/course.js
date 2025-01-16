@@ -6,10 +6,10 @@ const CourseSchema = new mongoose.Schema({
   level: {
     type: String,
     enum: ['Beginner', 'Intermediate', 'Advanced'],
-    required: true,
+    required: [true, 'level is required'],
   },
-  thumbnail: { type: String, required: true }, // Course displayed image
-  content: { type: String, required: true }, // Markdown or rich-text content
+  thumbnail: { type: String, required: [true, 'Course thumbnail is required'] }, // Course displayed image
+  content: { type: String, required: [true, 'Content is required'] }, // Markdown or rich-text content
   media: [{ type: String }], // URLs for images or videos
   quiz: [
     {
@@ -18,7 +18,7 @@ const CourseSchema = new mongoose.Schema({
       correctAnswer: { type: Number, required: true }, // Index of the correct option
     },
   ],
-  likes: { type: Number },
+  likes: { type: Number},
   duration: { type: String, required: true },
   rewardTokens: { type: Number, default: 0 },
   price: { type: Number, default: 0 },
